@@ -5,6 +5,6 @@ set -o pipefail
 set -o nounset
 
 
-alembic revision --autogenerate
+alembic revision --rev-id 4b5cfd75ed70
 alembic upgrade head
 python3 run.py
