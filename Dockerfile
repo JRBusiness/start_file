@@ -30,15 +30,15 @@ RUN pip install -r /requirements.txt
 
 RUN git clone https://github.com/JRBusiness/start_file.git start_file
 
-RUN sed -i 's/\r$//g' start_file/entrypoint
-RUN chmod +x start_file/entrypoint
+RUN sed -i 's/\r$//g' /start_file/entrypoint
+RUN chmod +x /start_file/entrypoint
 
-RUN sed -i 's/\r$//g' start_file/start
-RUN chmod +x start_file/start
+RUN sed -i 's/\r$//g' /start_file/start
+RUN chmod +x /start_file/start
 
-RUN sed -i 's/\r$//g' start_file/start-celeryworker
-RUN chmod +x start_file/start-celeryworker
+RUN sed -i 's/\r$//g' /start_file/celery/worker/celery_start
+RUN chmod +x /start_file/celery/worker/celery_start
 
 WORKDIR .
 
-ENTRYPOINT ["/entrypoint"]
+ENTRYPOINT ["/start_file/entrypoint"]
